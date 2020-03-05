@@ -1,37 +1,36 @@
-import React, {useState} from 'react';
-
+import React, { useState } from "react";
 
 function App() {
-  const [count,setCount] = useState(0)
-  const [isOn,setOn] = useState(false)
+  const [count, setCount] = useState(0);
+  const [isOn, setOn] = useState(false);
 
-  const toggleLight = ()=>{
+  const toggleLight = () => {
     //setOn( isOn===false ? style= {bacground:'grey'} : style={bacground:'green'} )
+    // arkaplani buradan degil img'in icine background=buFonksiyon yazarak degistirebilirsin
 
-    setOn(prevIsOn => !prevIsOn)
-  }
+    setOn(prevIsOn => !prevIsOn);
+  };
 
-  return(
+  return (
     <>
       <h2>counter</h2>
-      <button onClick={()=>setCount(prevCount => prevCount+1)}>I was clicked {count} times</button>
-      
+      <button onClick={() => setCount(prevCount => prevCount + 1)}>
+        I was clicked {count} times
+      </button>
+
       <h2> toggle light</h2>
       <img
-        alt='FlashLight'
+        alt="FlashLight"
         src={
-          isOn ? 'https:icon.now.sh/highlight/fd0' : 'https:icon.now.sh/highlight/aaa'
+          isOn
+            ? "https:icon.now.sh/highlight/fd0"
+            : "https:icon.now.sh/highlight/aaa"
         }
-        style={{height:50 ,
-        width:50
-        }}
+        style={{ height: 50, width: 50 }}
         onClick={toggleLight}
       />
-
-      
-
     </>
-  )
+  );
 }
 
 export default App;
