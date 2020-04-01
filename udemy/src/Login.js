@@ -3,9 +3,9 @@ import React, { useState } from "react";
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null) //username ve passwordu bir yere kaydedebilmek icin olusturdugum state
 
-  //bu handle'i form'a ekledigimiz onSubmit ile aldigimiz datayi kullanabilmek icin kurduk
+  //bu handle'i form'a ekledigim onSubmit ile aldigim datayi kullanabilmek icin kurdum
   const handleSubmit = (event)=> {
       event.preventDefault()
       const userData= {
@@ -13,37 +13,30 @@ export default function Login() {
           password
       }
       setUser(userData)
-      setUsername("")
-      setPassword("")
+      setUsername("") // alani temizleme
+      setPassword("") // alani temizleme
   }
 
   return (
     <div style={{ textAlign: "center" }}>
       <h2>Login</h2>
-      <form
-        style={{
-          display: "grid",
-          alignItems: "center",
-          justifyItems: "center"
-        }}
-        onSubmit={ handleSubmit }
-      >
+      <form onSubmit={ handleSubmit } >
         <input
           type="text"
           placeholder="Username"
           onChange={event => setUsername(event.target.value)}
-          value={username}
+          value={username} // sonrasinda alani temizlemek icin olusturuldu
         />
         <input
           type="password"
           placeholder="Password"
           onChange={event => setPassword(event.target.value)}
-          value={password}
+          value={password} // submite bastiktan sonra alani temizlemek icin
         />
         <button type="submit"> Submit </button>
       </form>
 
-      {user && JSON.stringify(user)}
+      {user && JSON.stringify(user)} 
     </div>
   );
 }
